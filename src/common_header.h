@@ -17,4 +17,6 @@ using std::vector;
 
 int computeJacobain();
 
+int compute_RMSE();
+
 #endif //KALMANFILTER_COMMON_HEADER_H

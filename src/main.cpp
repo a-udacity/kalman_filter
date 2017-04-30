@@ -74,8 +74,13 @@ void track(const vector<MeasurementPackage> &measurement_pack_list) {//Create a 
 /**
  * Compute Jacobian for non-linear transform (Radar data)
  */
+//int main() {
+//    return computeJacobain();
+//}
+
+/**
+ * Compute Kalman Filter performance
+ */
 int main() {
-    return computeJacobain();
+    return compute_RMSE();
 }
-
-

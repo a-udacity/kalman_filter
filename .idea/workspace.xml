@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0edf290a-600f-4caa-86f2-1711adf8b39d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateJacobian.cpp" afterPath="$PROJECT_DIR$/src/CalculateJacobian.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common_header.h" afterPath="$PROJECT_DIR$/src/common_header.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +54,8 @@
       <file leaf-file-name="CalculateJacobian.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CalculateJacobian.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="245">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -491,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CalculateJacobian.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="245">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

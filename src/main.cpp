@@ -65,10 +65,17 @@ void track(const vector<MeasurementPackage> &measurement_pack_list) {//Create a 
 /**
  * Kalman filter measurements for Laser
  */
+//int main() {
+//    vector<MeasurementPackage> measurement_pack_list = buildMeasurementPack();
+//    track(measurement_pack_list);
+//    return 0;
+//}
+
+/**
+ * Compute Jacobian for non-linear transform (Radar data)
+ */
 int main() {
-    vector<MeasurementPackage> measurement_pack_list = buildMeasurementPack();
-    track(measurement_pack_list);
-    return 0;
+    return computeJacobain();
 }
 
 

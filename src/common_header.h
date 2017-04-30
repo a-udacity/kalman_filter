@@ -15,6 +15,6 @@ using Eigen::VectorXd;
 using std::vector;
 
 
-int conputeJacobain();
+int computeJacobain();
 
 #endif //KALMANFILTER_COMMON_HEADER_H

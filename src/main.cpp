@@ -1,18 +1,6 @@
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include "Eigen/Dense"
-#include "measurement_package.h"
-#include "tracking.h"
+#include "common_header.h"
 
-using namespace std;
-using Eigen::MatrixXd;
-using Eigen::VectorXd;
-using std::vector;
-
-
-int main() {
+vector<MeasurementPackage> buildMeasurementPack() {
     /*******************************************************************************
      *  Set Measurements															 *
      *******************************************************************************/
@@ -20,7 +8,7 @@ int main() {
 
     // hardcoded input file with laser and radar measurements
     string measurement_file_path = "/Users/ahararwala/code-learning/udacity-sdce/projects/term2/examples/kalman_filter/src/obj_pose-laser-radar-synthetic-input.txt";
-    ifstream in_file(measurement_file_path.c_str(),std::ifstream::in);
+    ifstream in_file(measurement_file_path.c_str(), ios_base::in);
 
     if (!in_file.is_open()) {
         cout << "Cannot open input file: " << measurement_file_path << endl;
@@ -29,15 +17,14 @@ int main() {
     string line;
     // set i to get only first 3 measurments
     int i = 0;
-    while(getline(in_file, line) && (i<=3)){
-
+    while (getline(in_file, line) && (i <= 3)) {
         MeasurementPackage meas_package;
 
         istringstream iss(line);
         string sensor_type;
-        iss >> sensor_type;	//reads first element from the current line
+        iss >> sensor_type;    //reads first element from the current line
         long timestamp;
-        if(sensor_type.compare("L") == 0){	//laser measurement
+        if (sensor_type.compare("L") == 0) {    //laser measurement
             //read measurements
             meas_package.sensor_type_ = MeasurementPackage::LASER;
             meas_package.raw_measurements_ = VectorXd(2);
@@ -45,12 +32,12 @@ int main() {
             float y;
             iss >> x;
             iss >> y;
-            meas_package.raw_measurements_ << x,y;
+            meas_package.raw_measurements_ << x, y;
             iss >> timestamp;
             meas_package.timestamp_ = timestamp;
             measurement_pack_list.push_back(meas_package);
 
-        } else if(sensor_type.compare("R") == 0){
+        } else if (sensor_type.compare("R") == 0) {
             //Skip Radar measurements
             continue;
         }
@@ -58,19 +45,30 @@ int main() {
 
     }
 
-    //Create a Tracking instance
+    if (in_file.is_open()) {
+        in_file.close();
+    }
+    return measurement_pack_list;
+}
+
+void track(const vector<MeasurementPackage> &measurement_pack_list) {//Create a Tracking instance
     Tracking tracking;
 
     //call the ProcessingMeasurement() function for each measurement
     size_t N = measurement_pack_list.size();
-    for (size_t k = 0; k < N; ++k) {	//start filtering from the second frame (the speed is unknown in the first frame)
+    for (size_t k = 0;
+         k < N; ++k) {    //start filtering from the second frame (the speed is unknown in the first frame)
         tracking.ProcessMeasurement(measurement_pack_list[k]);
-
     }
+}
 
-    if(in_file.is_open()){
-        in_file.close();
-    }
+/**
+ * Kalman filter measurements for Laser
+ */
+int main() {
+    vector<MeasurementPackage> measurement_pack_list = buildMeasurementPack();
+    track(measurement_pack_list);
     return 0;
 }
+
 
